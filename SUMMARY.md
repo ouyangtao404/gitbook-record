@@ -1,7 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
-* [章节 1](chapter1.md)
-* [章节 2](chapter2.md)
-* [章节 3](chapter3.md)
+* [封面](README.md)
+* [个人能力增强的办法](个人能力增强的办法.md)
 
