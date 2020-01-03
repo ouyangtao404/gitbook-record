@@ -36,7 +36,9 @@ description: 每篇文章，都是构建思想大厦的板砖。
 * 与内心对话-能提升能力的基础能力
 * TypeScript
 * React hooks
-* canvas技术
+* canvas技术  
+  * https://www.canvasapi.cn/
+  * https://edwardzhong.github.io/sites/demo/dist/drawboard.html
 * markdown语法学习
 * 事实+看法=感受
 * 打破自我怀疑、坚定执行。——目标是什么？标准是什么？有几种方案可以实现？哪种更好？现在完成到什么程度了？
