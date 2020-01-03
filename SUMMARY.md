@@ -1,7 +1,6 @@
 # Table of contents
 
-* [风吹麦浪的博客](README.md)
-* [Untitled](untitled.md)
+* [麦浪航行的水手：）](README.md)
 * [技术文章](technology.md)
 * [学习方法](methodology/README.md)
   * [快速记忆法](methodology/kuai-su-ji-yi-fa.md)
