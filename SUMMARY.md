@@ -2,6 +2,7 @@
 
 * [风吹麦浪的博客](README.md)
 * [技术文章](technology/README.md)
+  * [ES6+学习](technology/es6+-xue-xi.md)
   * [利用github和gitbook开通个人博客](technology/create-blog-by-github-gitbook.md)
   * [markdown基础语法学习](technology/learn-markdown.md)
 * [学习方法](methodology/README.md)
