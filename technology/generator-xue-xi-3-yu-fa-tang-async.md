@@ -72,5 +72,41 @@ let [foo, bar] = await Promise.all([getFoo(), getBar()]);
 * 了解并发获取资源并依次输出结果的实现方式
 * 了解“顶层 await ”的预发提案
 
+### 写个例子
+
+```text
+function readFile(fileName, success = true) {
+  return new Promise((resolved, reject) => {
+    setTimeout(() => {
+      let text = `【我是文件${fileName}的文本内容】`;
+      if (success) {
+        resolved(text);
+      }
+      reject(new Error(`错误示例:${fileName}读取失败`));
+    }, 50);
+  });
+}
+
+async function ReadAllFile() {
+  let f1 = await readFile("file1");
+  let f2 = await readFile("file2");
+  let f3 = await readFile("file3", false);
+  let f4 = await readFile("file4");
+  return {
+    f1,
+    f2,
+    f3,
+    f4
+  };
+}
+let p = ReadAllFile();
+p.then(dt => {
+  console.log("dt", dt);
+}).catch(err => {
+  console.log("catch", err);
+});
+
+```
+
 
 
