@@ -4,26 +4,13 @@ description: ES6的异步处理方案
 
 # 【Generator学习4】总结
 
-## Getting Super Powers
+## 几个重要概念
 
-Becoming a super hero is a fairly straight forward process:
+* Generator具备暂停和继续执行的特点。
+* Promise的出现，为了解决回调函数多层嵌套、代码横向发展难以维护的问题。
+* Thunk函数，对于有callback作为参数的函数，将callback作为单独的唯一参数来调用执行，方便特定场景调用。
+* 像同步方法一样写异步操作：Generator基于暂停、继续的能力，可以在异步操作时暂停，等异步操作完成了再继续执行。需要额外配置一个执行器来调度。
+* async是Generator的语法糖，封装了执行器，不需要再显式写了。
 
-```
-$ give me super-powers
-```
-
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
-
-Once you're strong enough, save the world:
-
-{% code title="hello.sh" %}
-```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-{% endcode %}
-
-
+​
 
