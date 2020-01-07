@@ -2,7 +2,7 @@
 description: 不求精细运用、先从思路上理解
 ---
 
-# 【Generator学习1】粗学Generator
+# 粗学Generator
 
 ## Generator函数是什么？
 

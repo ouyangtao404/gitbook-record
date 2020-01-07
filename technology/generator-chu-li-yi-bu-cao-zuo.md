@@ -71,6 +71,14 @@ var g = function* (){
 run(g);
 ```
 
+实现自动执行的基本思路如下：
+
+* 利用yield来暂停函数，并且向外吐出thunk函数 
+* 在外部，令该thunk函数带上callback再执行 
+* 执行完成后正好调用封装在callback里的Generator的继续运行的逻辑。
+
+核心的原理就是：**在yield吐出的东西上对接好g.next\(\)；**
+
 ### co模块
 
 用于支持Generator函数自动执行
