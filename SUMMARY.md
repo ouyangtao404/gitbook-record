@@ -2,6 +2,7 @@
 
 * [麦浪航行的水手：）](README.md)
 * [技术文章](technology.md)
+  * [Generator处理异步操作](technology/generator-chu-li-yi-bu-cao-zuo.md)
   * [粗学Generator](cu-xue-generator.md)
 * [学习方法](methodology/README.md)
   * [有效的学习总结](methodology/shen-me-shi-you-xiao-de-xue-xi-zong-jie.md)
