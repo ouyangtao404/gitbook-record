@@ -2,7 +2,7 @@
 description: Generator 函数将 JavaScript 异步编程带入了一个全新的阶段
 ---
 
-# Generator处理异步操作
+# 【Generator学习2】Generator处理异步操作
 
 ## 利用Generator特性，用同步的编码方式来实现异步操作
 
