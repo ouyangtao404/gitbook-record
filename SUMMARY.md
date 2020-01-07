@@ -4,6 +4,7 @@
 * [技术文章](technology.md)
   * [粗学Generator](cu-xue-generator.md)
 * [学习方法](methodology/README.md)
+  * [什么是有效的学习总结](methodology/shen-me-shi-you-xiao-de-xue-xi-zong-jie.md)
   * [快速记忆法](methodology/kuai-su-ji-yi-fa.md)
   * [STAR法则](methodology/star-fa-ze.md)
   * [如何做好一次演讲？](methodology/ru-he-zuo-hao-yi-ci-yan-jiang.md)
