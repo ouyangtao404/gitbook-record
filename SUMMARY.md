@@ -2,6 +2,7 @@
 
 * [麦浪航行的水手：）](README.md)
 * [技术文章](technology.md)
+  * [【Generator学习4】总结](technology/generator-xue-xi-4-zong-jie.md)
   * [【Generator学习3】语法糖async](technology/generator-xue-xi-3-yu-fa-tang-async.md)
   * [【Generator学习2】Generator处理异步操作](technology/generator-chu-li-yi-bu-cao-zuo.md)
   * [【Generator学习1】粗学Generator](cu-xue-generator.md)
