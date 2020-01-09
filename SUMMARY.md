@@ -15,5 +15,4 @@
   * [别陷在业务里](methodology/up-your-power.md)
 * [心态成长](mind.md)
 * [太极八卦阵](tai-ji-ba-gua-zhen.md)
-* [Untitled](untitled.md)
 
