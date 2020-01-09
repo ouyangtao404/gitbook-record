@@ -1,12 +1,12 @@
 ---
-description: 不求精细吸收、先从思路上理解
+description: 不求精细运用、先从思路上理解
 ---
 
 # 【Generator学习1】粗学Generator
 
 ## Generator函数是什么？
 
-它有多种理解角度。它具备暂停执行和继续执行的特点。它执行返回的hw是一个纸箱，也是一个遍历器对象。
+它有多种理解角度。它具备暂停执行和继续执行的特点。它执行返回的hw是一个遍历器对象。
 
 ```text
 function* helloWorldGenerator() {
