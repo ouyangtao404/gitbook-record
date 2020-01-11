@@ -1,6 +1,6 @@
 # Table of contents
 
-* [麦浪航行的水手：）](README.md)
+* [首页](README.md)
 * [技术文章](technology/README.md)
   * [Three.js备忘](technology/three.js-bei-wang.md)
   * [【Generator学习4】总结](technology/generator-xue-xi-4-zong-jie.md)
@@ -13,6 +13,6 @@
   * [STAR法则](methodology/star-fa-ze.md)
   * [如何做好一次演讲？](methodology/ru-he-zuo-hao-yi-ci-yan-jiang.md)
   * [别陷在业务里](methodology/up-your-power.md)
-* [心态成长](mind.md)
-  * [太极八卦阵](mind/tai-ji-ba-gua-zhen.md)
+* [心态成长](mind/README.md)
+  * [太极八卦](mind/tai-ji-ba-gua-zhen.md)
 
