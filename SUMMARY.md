@@ -2,6 +2,7 @@
 
 * [首页](README.md)
 * [技术文章](technology/README.md)
+  * [React 生命周期](technology/react-sheng-ming-zhou-qi.md)
   * [Three.js备忘](technology/three.js-bei-wang.md)
   * [【Generator学习4】总结](technology/generator-xue-xi-4-zong-jie.md)
   * [【Generator学习3】语法糖async](technology/generator-xue-xi-3-yu-fa-tang-async.md)
