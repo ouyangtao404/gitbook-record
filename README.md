@@ -35,9 +35,7 @@ description: 每篇文章，都是构建思想大厦的板砖。
 
 ### 技术积累
 
-* 矩阵变换  
-  * https://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/
-  * [https://www.bilibili.com/video/av6731067?p=4](https://www.bilibili.com/video/av6731067?p=4)
+* 矩阵变换  https://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/
 * three.js经验总结（看看例子写点demo，熟悉基本概念）
 * canvas技术 
   * https://www.canvasapi.cn/
@@ -48,7 +46,6 @@ description: 每篇文章，都是构建思想大厦的板砖。
 * ES6+ 学习系列
   * ~~generator相关~~
   * 解构赋值
-* 高级工程师知识汇总（[http://www.mawen.co/question/92?utm\_campaign=PC%E6%8E%A8%E5%B9%BF&utm\_medium=cpc&utm\_source=PC%E6%8E%A8%E5%B9%BF&gio\_link\_id=a9aqBG9B](http://www.mawen.co/question/92?utm_campaign=PC%E6%8E%A8%E5%B9%BF&utm_medium=cpc&utm_source=PC%E6%8E%A8%E5%B9%BF&gio_link_id=a9aqBG9B)）
 
 ### 项目管理
 
