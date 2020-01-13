@@ -16,5 +16,6 @@
   * [如何做好一次演讲？](methodology/ru-he-zuo-hao-yi-ci-yan-jiang.md)
   * [别陷在业务里](methodology/up-your-power.md)
 * [心态成长](mind/README.md)
+  * [心智发展的几个阶段](mind/xin-zhi-fa-zhan-de-ji-ge-jie-duan.md)
   * [太极八卦](mind/tai-ji-ba-gua-zhen.md)
 
