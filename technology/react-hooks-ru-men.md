@@ -20,7 +20,7 @@ React 16.8版本开始支持hooks
 
 ### 个人感受
 
-相比类组件，纯函数组件配合hooks比较轻，没有那么多结构性的代码影响项目的维护性。很愿意去尝试使用。
+相比类组件，纯函数组件配合hooks比较轻，没有那么多结构性的代码影响项目的维护性。很愿意去尝试使用。准确的感受还等实践之后得知。
 
 [https://www.jianshu.com/p/7e778adec7d1](https://www.jianshu.com/p/7e778adec7d1)[  
 ](http://www.ruanyifeng.com/blog/2019/09/react-hooks.html)[​http://www.ruanyifeng.com/blog/2019/09/react-hooks.html](http://www.ruanyifeng.com/blog/2019/09/react-hooks.html)  
