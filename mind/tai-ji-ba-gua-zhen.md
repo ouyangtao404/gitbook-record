@@ -78,8 +78,9 @@ description: 个人成长路上沉淀的黄金信条
     <tr>
       <td style="text-align:left"><b>&#x6240;&#x6709;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x90FD;&#x662F;&#x81EA;&#x5DF1;&#x7684;&#x95EE;&#x9898;</b>
       </td>
-      <td style="text-align:left">&#x5411;&#x5185;&#x6C42;&#x2014;&#x2014;&#x6C42;&#x7531;&#x4E0D;&#x5F97;&#x3001;&#x53CD;&#x6C42;&#x8BF8;&#x5DF1;&#x3002;
-        &#x6240;&#x6709;&#x95EE;&#x9898;&#x6700;&#x540E;&#x90FD;&#x5E94;&#x8BE5;&#x56DE;&#x5230;&#xFF1A;&#x8BE5;&#x600E;&#x4E48;&#x6539;&#x53D8;&#xFF1F;&#x6211;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#xFF1F;</td>
+      <td style="text-align:left">1.&#x5411;&#x5185;&#x6C42;&#x2014;&#x2014;&#x6C42;&#x7531;&#x4E0D;&#x5F97;&#x3001;&#x53CD;&#x6C42;&#x8BF8;&#x5DF1;&#x3002;
+        <br
+        />2.&#x6240;&#x6709;&#x95EE;&#x9898;&#x6700;&#x540E;&#x90FD;&#x5E94;&#x8BE5;&#x56DE;&#x5230;&#xFF1A;&#x8BE5;&#x600E;&#x4E48;&#x6539;&#x53D8;&#xFF1F;&#x6211;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#xFF1F;</td>
       <td
       style="text-align:left">
         <p>&#x4E0D;&#x8981;&#x9677;&#x5165;&#x60C5;&#x7EEA;&#xFF0C;&#x53BB;&#x61CA;&#x607C;&#x73AF;&#x5883;&#x548C;&#x4ED6;&#x4EBA;</p>
@@ -118,7 +119,7 @@ description: 个人成长路上沉淀的黄金信条
       <td style="text-align:left"><b>&#x4E0A;&#x5E1D;&#x7684;&#x542F;&#x793A;&#x3001;&#x4FEE;&#x884C;&#x6B63;&#x5F53;&#x6B64;&#x65F6;</b>
       </td>
       <td style="text-align:left">
-        <p>&#x673A;&#x4F1A;&#x7684;&#x5916;&#x8863;&#x662F;&#x75DB;&#x82E6;&#xFF0C;&#x662F;&#x4E0A;&#x6B21;&#x8D50;&#x4E88;&#x7684;&#x793C;&#x7269;&#xFF0C;&#x4E0D;&#x8981;&#x8F9C;&#x8D1F;&#x3002;
+        <p>1.&#x673A;&#x4F1A;&#x7684;&#x5916;&#x8863;&#x662F;&#x4E0D;&#x8212;&#x670D;&#xFF0C;&#x662F;&#x4E0A;&#x5E1D;&#x8D50;&#x4E88;&#x7684;&#x793C;&#x7269;&#xFF0C;&#x4E0D;&#x8981;&#x8F9C;&#x8D1F;&#x3002;
           <br
           />
           <br />2.&#x95EE;&#x9898;&#x7684;&#x5230;&#x6765;&#xFF0C;&#x5C31;&#x662F;&#x6700;&#x597D;&#x7684;&#x4FEE;&#x884C;&#x65F6;&#x523B;&#xFF0C;&#x653E;&#x4E0B;&#x6CA1;&#x6709;&#x51C6;&#x5907;&#x597D;&#x7684;&#x5984;&#x5FF5;&#x3002;
