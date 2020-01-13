@@ -44,7 +44,7 @@ description: 每篇文章，都是构建思想大厦的板砖。
   * https://edwardzhong.github.io/sites/demo/dist/drawboard.html
 * 图像技术
 * TypeScript
-* React hooks
+* ~~React hooks~~
 * ES6+ 学习系列
   * ~~generator相关~~
   * 解构赋值
