@@ -24,5 +24,5 @@ React 16.8版本开始支持hooks
 
 [https://www.jianshu.com/p/7e778adec7d1](https://www.jianshu.com/p/7e778adec7d1)[  
 ](http://www.ruanyifeng.com/blog/2019/09/react-hooks.html)[​http://www.ruanyifeng.com/blog/2019/09/react-hooks.html](http://www.ruanyifeng.com/blog/2019/09/react-hooks.html)  
-
+[https://zh-hans.reactjs.org/docs/hooks-intro.html](https://zh-hans.reactjs.org/docs/hooks-intro.html)
 
