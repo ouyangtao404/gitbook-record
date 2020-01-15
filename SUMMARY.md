@@ -2,10 +2,10 @@
 
 * [首页](README.md)
 * [技术文章](technology/README.md)
-  * [\[ES6+学习\]解构赋值](technology/es6+-xue-xi-jie-gou-fu-zhi.md)
   * [React hooks入门](technology/react-hooks-ru-men.md)
   * [React 生命周期](technology/react-sheng-ming-zhou-qi.md)
   * [Three.js备忘](technology/three.js-bei-wang.md)
+  * [【ES6+学习】解构赋值](technology/es6+-xue-xi-jie-gou-fu-zhi.md)
   * [【Generator学习4】总结](technology/generator-xue-xi-4-zong-jie.md)
   * [【Generator学习3】语法糖async](technology/generator-xue-xi-3-yu-fa-tang-async.md)
   * [【Generator学习2】Generator处理异步操作](technology/generator-chu-li-yi-bu-cao-zuo.md)
