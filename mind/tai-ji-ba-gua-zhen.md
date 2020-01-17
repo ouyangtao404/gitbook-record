@@ -135,11 +135,6 @@ description: 个人成长路上沉淀的黄金信条
         <p>&#x5DF2;&#x7136;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5C31;&#x662F;&#x5FC5;&#x7136;&#x53D1;&#x751F;&#x7684;&#xFF0C;&#x662F;&#x4E0A;&#x5E1D;&#x5B89;&#x6392;&#x597D;&#x8BFE;&#x7A0B;&#xFF0C;&#x4E0D;&#x8981;&#x9677;&#x5728;&#x62C5;&#x5FC3;&#x522B;&#x4EBA;&#x770B;&#x6CD5;&#x800C;&#x5FC3;&#x7406;&#x8FC7;&#x4E0D;&#x53BB;&#x3002;</p>
       </td>
     </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-    </tr>
   </tbody>
 </table>
 
