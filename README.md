@@ -4,7 +4,7 @@ description: 每篇文章，都是构建思想大厦的板砖。
 
 # 首页
 
-![](.gitbook/assets/image%20%288%29.png)
+![](.gitbook/assets/image%20%289%29.png)
 
 ## 写博客的初衷
 

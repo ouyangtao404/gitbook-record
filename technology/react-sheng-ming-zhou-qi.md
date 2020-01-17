@@ -6,9 +6,9 @@ description: 'https://zhuanlan.zhihu.com/p/60168527'
 
 ### 最初\(16.3版本\)
 
-![](../.gitbook/assets/image%20%282%29.png)
+![](../.gitbook/assets/image%20%283%29.png)
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%285%29.png)
 
 * 基础   
   * 构造函数    
@@ -28,7 +28,7 @@ description: 'https://zhuanlan.zhihu.com/p/60168527'
 
 ### 版本16.4之后    
 
-![](../.gitbook/assets/image%20%281%29.png)
+![](../.gitbook/assets/image%20%282%29.png)
 
 * 移除了加载will\接受props\更新will    
 * 增加了    ​    

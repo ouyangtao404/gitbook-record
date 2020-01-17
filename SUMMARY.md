@@ -11,6 +11,7 @@
   * [【Generator学习2】Generator处理异步操作](technology/generator-chu-li-yi-bu-cao-zuo.md)
   * [【Generator学习1】粗学Generator](technology/cu-xue-generator.md)
 * [学习方法](methodology/README.md)
+  * [几个重要的思维工具](methodology/ji-ge-zhong-yao-de-si-wei-gong-ju.md)
   * [有效的学习总结](methodology/shen-me-shi-you-xiao-de-xue-xi-zong-jie.md)
   * [快速记忆法](methodology/kuai-su-ji-yi-fa.md)
   * [STAR法则](methodology/star-fa-ze.md)

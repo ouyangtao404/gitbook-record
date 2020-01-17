@@ -14,7 +14,7 @@ description: 记录文档和一些不错的案例
 
 炫酷的案例
 
-![ &#x200B;https://wow.techbrood.com/fiddle/11959](../.gitbook/assets/image%20%287%29.png)
+![ &#x200B;https://wow.techbrood.com/fiddle/11959](../.gitbook/assets/image%20%288%29.png)
 
 
 
