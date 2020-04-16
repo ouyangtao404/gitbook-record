@@ -2,6 +2,7 @@
 
 * [首页](README.md)
 * [技术文章](technology/README.md)
+  * [DvaJS学习笔记](technology/dvajs-xue-xi-bi-ji.md)
   * [React hooks入门](technology/react-hooks-ru-men.md)
   * [React 生命周期](technology/react-sheng-ming-zhou-qi.md)
   * [Three.js备忘](technology/three.js-bei-wang.md)

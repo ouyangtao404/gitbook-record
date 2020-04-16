@@ -4,7 +4,7 @@ description: 个人成长路上沉淀的黄金信条
 
 # 太极八卦
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 这八条，是我个人成长路上沉淀的黄金信条。
 
