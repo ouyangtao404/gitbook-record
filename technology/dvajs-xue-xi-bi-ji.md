@@ -4,9 +4,9 @@
 
 数据流的处理方案。
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 * 封装了redux  react-router
 * dva应用的最简结构
