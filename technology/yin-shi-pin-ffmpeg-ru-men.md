@@ -17,6 +17,12 @@ Stream #0.2: Audio: ac3, 48000 Hz, 5.1, s16, 384 kb/s
 
 然后运行`ffmpeg -i file.mp4 -map 0:0 -map 0:2 -acodec copy -vcodec copy new_file.mp4`以将视频流和第二音频流复制到`new_file.mp4`。
 
+
+
+{% embed url="https://qastack.cn/unix/6402/how-to-remove-an-audio-track-from-an-mp4-video-file" %}
+
+
+
 {% embed url="http://www.ruanyifeng.com/blog/2020/01/ffmpeg.html" %}
 
 
