@@ -2,6 +2,7 @@
 
 * [首页](README.md)
 * [技术文章](technology/README.md)
+  * [音视频-FFmpeg入门](technology/yin-shi-pin-ffmpeg-ru-men.md)
   * [音视频-基础知识](technology/yin-shi-pin-ji-chu-zhi-shi.md)
   * [前端面试题](technology/qian-duan-mian-shi-ti.md)
   * [DvaJS学习笔记](technology/dvajs-xue-xi-bi-ji.md)
