@@ -15,6 +15,7 @@
   * [【Generator学习2】Generator处理异步操作](technology/generator-chu-li-yi-bu-cao-zuo.md)
   * [【Generator学习1】粗学Generator](technology/cu-xue-generator.md)
 * [学习方法](methodology/README.md)
+  * [提升能力的底层思维](methodology/ti-sheng-neng-li-de-di-ceng-si-wei.md)
   * [时间都花在哪里了？](methodology/shi-jian-du-hua-zai-na-li-le.md)
   * [几个重要的思维工具](methodology/ji-ge-zhong-yao-de-si-wei-gong-ju.md)
   * [有效的学习总结](methodology/shen-me-shi-you-xiao-de-xue-xi-zong-jie.md)
@@ -27,4 +28,6 @@
   * [阻碍成长的因素](mind/zu-ai-cheng-chang-de-yin-su.md)
   * [心智发展的几个阶段](mind/xin-zhi-fa-zhan-de-ji-ge-jie-duan.md)
   * [太极八卦](mind/tai-ji-ba-gua-zhen.md)
+* [所见所闻](suo-jian-suo-wen-1/README.md)
+  * [性教育](suo-jian-suo-wen-1/xing-jiao-yu.md)
 
