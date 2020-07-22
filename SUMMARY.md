@@ -2,6 +2,7 @@
 
 * [首页](README.md)
 * [技术文章](technology/README.md)
+  * [TypeScript学习总结](technology/typescript-xue-xi-zong-jie.md)
   * [\[转载\]玩转前端二进制](technology/zhuan-zai-wan-zhuan-qian-duan-er-jin-zhi.md)
   * [音视频-FFmpeg入门](technology/yin-shi-pin-ffmpeg-ru-men.md)
   * [音视频-基础知识](technology/yin-shi-pin-ji-chu-zhi-shi.md)
