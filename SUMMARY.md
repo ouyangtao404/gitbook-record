@@ -18,6 +18,7 @@
   * [【Generator学习2】Generator处理异步操作](technology/generator-chu-li-yi-bu-cao-zuo.md)
   * [【Generator学习1】粗学Generator](technology/cu-xue-generator.md)
 * [学习方法](methodology/README.md)
+  * [软思考](methodology/ruan-si-kao.md)
   * [提升能力的底层思维](methodology/ti-sheng-neng-li-de-di-ceng-si-wei.md)
   * [时间都花在哪里了？](methodology/shi-jian-du-hua-zai-na-li-le.md)
   * [几个重要的思维工具](methodology/ji-ge-zhong-yao-de-si-wei-gong-ju.md)
