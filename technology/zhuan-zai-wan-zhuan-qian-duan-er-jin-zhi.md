@@ -1,33 +1,33 @@
-# \[转载\]玩转前端二进制
+# \[转载]玩转前端二进制
 
 
 
 本文阿宝哥将按照以下的流程来介绍前端如何进行图片处理，然后穿插介绍二进制、Blob、Blob URL、Base64、Data URL、ArrayBuffer、TypedArray、DataView 和图片压缩相关的知识点。
 
-  
+\
 
 
-![](../.gitbook/assets/image%20%2823%29.png)
+![](<../.gitbook/assets/image (23).png>)
 
 阅读完本文，小伙伴们将能轻松看懂以下转换关系图：
 
-![](../.gitbook/assets/image%20%2849%29.png)
+![](<../.gitbook/assets/image (49).png>)
 
 还在犹豫什么？跟上阿宝哥的脚步，让我们一起来玩转前端二进制。请小伙伴们原谅阿宝哥的 “自恋”，在后面的示例中，我们将使用阿宝哥的个人头像作为演示素材。
 
-好的，现在我们开始来进入第一个环节：**「选择本地图片 -&gt; 图片预览」**。
+好的，现在我们开始来进入第一个环节：**「选择本地图片 -> 图片预览」**。
 
-#### 一、选择本地图片 -&gt; 图片预览
+#### 一、选择本地图片 -> 图片预览
 
 **1.1 FileReader API**
 
 在支持 FileReader API 的浏览器中，我们也可以利用该 API 方便实现图片本地预览功能。
 
-（图片来源：https://caniuse.com/\#search=filereader）
+（图片来源：https://caniuse.com/#search=filereader）
 
 由上图可知，该 API 兼容性较好，我们可以放心使用。这里阿宝哥就不展开详细介绍 FileReader API，我们直接来看一下利用它如何实现本地图片预览，具体代码如下：
 
-```text
+```
 <!DOCTYPE html>
 <html>
   <head>
@@ -64,17 +64,17 @@
 
 通过使用 Chrome 开发者工具，我们可以在 `Elements` 面板中看到 Data URL 的 **「“芳容”」**：
 
-![](../.gitbook/assets/image%20%2838%29.png)
+![](<../.gitbook/assets/image (38).png>)
 
 在图中右侧的绿色框中，我们可以清楚的看到 `img` 元素 `src` 属性值是一串非常 **「奇怪」** 的字符串：
 
-```text
+```
 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhAAAAIwCAYAAADXrFK...
 ```
 
 其实，这串奇怪的字符串被称为 Data URL，它由四个部分组成：前缀（`data:`）、指示数据类型的 MIME 类型、如果非文本则为可选的 `base64` 标记、数据本身：
 
-```text
+```
 data:[<mediatype>][;base64],<data>
 ```
 
@@ -94,21 +94,21 @@ data:[<mediatype>][;base64],<data>
 
 **「Base64」** 是一种基于 64 个可打印字符来表示二进制数据的表示方法。由于 **「2⁶ = 64」** ，所以每 6 个比特为一个单元，对应某个可打印字符。3 个字节有 24 个比特，对应于 4 个 base64 单元，即 3 个字节可由 4 个可打印字符来表示。相应的转换过程如下图所示：
 
-![](../.gitbook/assets/image%20%2836%29.png)
+![](<../.gitbook/assets/image (36).png>)
 
 **「Base64 常用于在处理文本数据的场合，表示、传输、存储一些二进制数据，包括 MIME 的电子邮件及 XML 的一些复杂数据。」** 在 MIME 格式的电子邮件中，base64 可以用来将二进制的字节序列数据编码成 ASCII 字符序列构成的文本。使用时，在传输编码方式中指定 base64。使用的字符包括大小写拉丁字母各 26 个、数字 10 个、加号 + 和斜杠 /，共 64 个字符，等号 = 用来作为后缀用途。
 
 Base64 相应的索引表如下：
 
-![](../.gitbook/assets/image%20%2846%29.png)
+![](<../.gitbook/assets/image (46).png>)
 
 了解完上述的知识，我们以编码 `Man` 为例，来直观的感受一下编码过程。`Man` 由 M、a 和 n 这 3 个字符组成，它们对应的 ASCII 码为 77、97 和 110。
 
-![](../.gitbook/assets/image%20%2840%29.png)
+![](<../.gitbook/assets/image (40).png>)
 
 接着我们以每 6 个比特为一个单元，进行 base64 编码操作，具体如下图所示：
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](<../.gitbook/assets/image (32).png>)
 
 由图可知，`Man` （3 字节）编码的结果为 `TWFu`（4 字节），很明显经过 base64 编码后体积会增加 1/3。`Man` 这个字符串的长度刚好是 3，我们可以用 4 个 base64 单元来表示。但如果待编码的字符串长度不是 3 的整数倍时，应该如何处理呢？
 
@@ -116,24 +116,24 @@ Base64 相应的索引表如下：
 
 以编码字符 A 为例，其所占的字节数为 1，不能被 3 整除，需要补 2 个字节，具体如下图所示：
 
-![](../.gitbook/assets/image%20%2833%29.png)
+![](<../.gitbook/assets/image (33).png>)
 
 由上图可知，字符 A 经过 base64 编码后的结果是 `QQ==`，该结果后面的两个 `=` 代表补足的字节数。而最后个 1 个 base64 字节块有 4 位是 0 值。
 
 接着我们来看另一个示例，假设需编码的字符串为 `BC`，其所占字节数为 2，不能被 3 整除，需要补 1 个字节，具体如下图所示：
 
-![](../.gitbook/assets/image%20%2847%29.png)
+![](<../.gitbook/assets/image (47).png>)
 
 由上图可知，字符串 BC 经过 base64 编码后的结果是 `QkM=`，该结果后面的 1 个 `=` 代表补足的字节数。而最后个 1 个 base64 字节块有 2 位是 0 值。
 
 在 JavaScript 中，有两个函数被分别用来处理解码和编码 base64 字符串：
 
-* btoa\(\)：该函数能够基于二进制数据 “字符串” 创建一个 base64 编码的 ASCII 字符串。
-* atob\(\)：该函数能够解码通过 base64 编码的字符串数据。
+* btoa()：该函数能够基于二进制数据 “字符串” 创建一个 base64 编码的 ASCII 字符串。
+* atob()：该函数能够解码通过 base64 编码的字符串数据。
 
 **1.2.1 btoa 使用示例**
 
-```text
+```
 const name = 'Semlinker';
 const encodedName = btoa(name);
 console.log(encodedName); // U2VtbGlua2Vy
@@ -141,7 +141,7 @@ console.log(encodedName); // U2VtbGlua2Vy
 
 **1.2.2 atob 使用示例**
 
-```text
+```
 const encodedName = 'U2VtbGlua2Vy';
 const name = atob(encodedName);
 console.log(name); // Semlinker
@@ -151,19 +151,19 @@ console.log(name); // Semlinker
 
 相信看到这里，小伙伴们对 base64 已经有一定的了解。需要注意的是 base64 只是一种数据编码方式，目的是为了保障数据的安全传输。但标准的 base64 编码无需额外的信息，即可以进行解码，是完全可逆的。因此在涉及传输私密数据时，并不能直接使用 base64 编码，而是要使用专门的对称或非对称加密算法。
 
-#### 二、网络下载图片 -&gt; 图片预览
+#### 二、网络下载图片 -> 图片预览
 
 除了可以从本地获取图片之外，我们也可以使用 fetch API 从网络上获取图片，然后在进行图片预览。当然对于网络上可正常访问的图片地址，我们可以直接把地址赋给 `img` 元素，并不需要通过 fetch API 绕一大圈。若在显示图片时，你需要对图片进行特殊处理，比如解密图片数据时，你就可以考虑在 Web Worker 中使用 fetch API 获取图片数据并进行解密操作。
 
 简单起见，我们不考虑特殊的场景。首先我们先来看一下 fetch API 的兼容性：
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](<../.gitbook/assets/image (27).png>)
 
-（图片来源：https://caniuse.com/\#search=fetch）
+（图片来源：https://caniuse.com/#search=fetch）
 
 然后我们使用 fetch API 从 Github 上获取阿宝哥的头像，具体代码如下所示：
 
-```text
+```
 <!DOCTYPE html>
 <html>
   <head>
@@ -192,11 +192,11 @@ console.log(name); // Semlinker
 
 通过使用 Chrome 开发者工具，我们可以在 `Elements` 面板中看到 Object URL 的 **「“芳容”」**：
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](<../.gitbook/assets/image (25).png>)
 
 在图中右侧的绿色框中，我们可以清楚的看到 `img` 元素 `src` 属性值是一串非常 **「特殊」** 的字符串：
 
-```text
+```
 blob:null/ab24c171-1c5f-4de1-a44e-568bc1f77d7b
 ```
 
@@ -206,7 +206,7 @@ blob:null/ab24c171-1c5f-4de1-a44e-568bc1f77d7b
 
 Object URL 是一种伪协议，也被称为 Blob URL。它允许 Blob 或 File 对象用作图像，下载二进制数据链接等的 URL 源。在浏览器中，我们使用 `URL.createObjectURL` 方法来创建 Blob URL，该方法接收一个 `Blob` 对象，并为其创建一个唯一的 URL，其形式为 `blob:<origin>/<uuid>`，对应的示例如下：
 
-```text
+```
 blob:https://example.org/40a5fb5a-d56d-4a33-b4e2-0acf6a8e5f641
 ```
 
@@ -222,13 +222,13 @@ blob:https://example.org/40a5fb5a-d56d-4a33-b4e2-0acf6a8e5f641
 
 Blob（Binary Large Object）表示二进制类型的大对象。在数据库管理系统中，将二进制数据存储为一个单一个体的集合。Blob 通常是影像、声音或多媒体文件。**「在 JavaScript 中 Blob 类型的对象表示不可变的类似文件对象的原始数据。」** 为了更直观的感受 Blob 对象，我们先来使用 Blob 构造函数，创建一个 myBlob 对象，具体如下图所示：
 
-![](../.gitbook/assets/image%20%2843%29.png)
+![](<../.gitbook/assets/image (43).png>)
 
 如你所见，myBlob 对象含有两个属性：size 和 type。其中 `size` 属性用于表示数据的大小（以字节为单位），`type` 是 MIME 类型的字符串。Blob 表示的不一定是 JavaScript 原生格式的数据。比如 `File` 接口基于 `Blob`，继承了 blob 的功能并将其扩展使其支持用户系统上的文件。
 
 `Blob` 由一个可选的字符串 `type`（通常是 MIME 类型）和 `blobParts` 组成：
 
-![](../.gitbook/assets/image%20%2826%29.png)
+![](<../.gitbook/assets/image (26).png>)
 
 > ❝
 >
@@ -240,7 +240,7 @@ Blob（Binary Large Object）表示二进制类型的大对象。在数据库管
 
 Blob 构造函数的语法为：
 
-```text
+```
 var aBlob = new Blob(blobParts, options);
 ```
 
@@ -253,7 +253,7 @@ var aBlob = new Blob(blobParts, options);
 
 **「示例一：从字符串创建 Blob」**
 
-```text
+```
 let myBlobParts = ['<html><h2>Hello Semlinker</h2></html>']; // an array consisting of a single DOMString
 let myBlob = new Blob(myBlobParts, {type : 'text/html', endings: "transparent"}); // the blob
 
@@ -265,14 +265,14 @@ console.log(myBlob.type + " is the type");
 
 **「示例二：从类型化数组和字符串创建 Blob」**
 
-```text
+```
 let hello = new Uint8Array([72, 101, 108, 108, 111]); // 二进制格式的 "hello"
 let blob = new Blob([hello, ' ', 'semlinker'], {type: 'text/plain'});
 ```
 
 介绍完 Blob 构造函数，接下来我们来分别介绍 Blob 类的属性和方法：
 
-![](../.gitbook/assets/image%20%2841%29.png)
+![](<../.gitbook/assets/image (41).png>)
 
 **2.2.2 Blob 属性**
 
@@ -283,10 +283,10 @@ let blob = new Blob([hello, ' ', 'semlinker'], {type: 'text/plain'});
 
 **2.2.3 Blob 方法**
 
-* slice\(\[start\[, end\[, contentType\]\]\]\)：返回一个新的 Blob 对象，包含了源 Blob 对象中指定范围内的数据。
-* stream\(\)：返回一个能读取 blob 内容的 `ReadableStream`。
-* text\(\)：返回一个 Promise 对象且包含 blob 所有内容的 UTF-8 格式的 `USVString`。
-* arrayBuffer\(\)：返回一个 Promise 对象且包含 blob 所有内容的二进制格式的 `ArrayBuffer`。
+* slice(\[start\[, end\[, contentType]]])：返回一个新的 Blob 对象，包含了源 Blob 对象中指定范围内的数据。
+* stream()：返回一个能读取 blob 内容的 `ReadableStream`。
+* text()：返回一个 Promise 对象且包含 blob 所有内容的 UTF-8 格式的 `USVString`。
+* arrayBuffer()：返回一个 Promise 对象且包含 blob 所有内容的二进制格式的 `ArrayBuffer`。
 
 这里我们需要注意的是，**「`Blob` 对象是不可改变的」**。我们不能直接在一个 Blob 中更改数据，但是我们可以对一个 Blob 进行分割，从其中创建新的 Blob 对象，将它们混合到一个新的 Blob 中。这种行为类似于 JavaScript 字符串：我们无法更改字符串中的字符，但可以创建新的更正后的字符串。
 
@@ -294,7 +294,7 @@ let blob = new Blob([hello, ' ', 'semlinker'], {type: 'text/plain'});
 
 在前后端分离的项目中，大家用得比较多的应该就是 `json()` 方法，而其它方法可能用得相对比较少。对于前面的示例，我们把响应对象转换为 `ArrayBuffer` 对象，同样可以正常显示从网络下载的图像，具体的代码如下所示：
 
-```text
+```
 <h3>阿宝哥：获取远程图片预览示例</h3>
 <img id="previewContainer" style="width: 50%;"/>
 
@@ -330,26 +330,26 @@ ArrayBuffer 对象用来表示**「通用的、固定长度的」**原始二进�
 
 **「语法」**
 
-```text
+```
 new ArrayBuffer(length)
 ```
 
 * 参数：length 表示要创建的 ArrayBuffer 的大小，单位为字节。
 * 返回值：一个指定大小的 ArrayBuffer 对象，其内容被初始化为 0。
-* 异常：如果 length 大于 `Number.MAX_SAFE_INTEGER`（&gt;= 2 \*\* 53）或为负数，则抛出一个  `RangeError`  异常。
+* 异常：如果 length 大于 `Number.MAX_SAFE_INTEGER`（>= 2 \*\* 53）或为负数，则抛出一个  `RangeError`  异常。
 
 **「示例」**
 
 下面的例子创建了一个 8 字节的缓冲区，并使用一个 `Int32Array` 来引用它：
 
-```text
+```
 let buffer = new ArrayBuffer(8);
 let view   = new Int32Array(buffer);
 ```
 
 从 ECMAScript 2015 开始，`ArrayBuffer` 对象需要用 `new` 运算符创建。如果调用构造函数时没有使用 `new`，将会抛出 `TypeError`  异常。比如执行该语句 `let ab = ArrayBuffer(10)` 将会抛出以下异常：
 
-```text
+```
 VM109:1 Uncaught TypeError: Constructor ArrayBuffer requires 'new'
     at ArrayBuffer (<anonymous>)
     at <anonymous>:1:10
@@ -357,7 +357,7 @@ VM109:1 Uncaught TypeError: Constructor ArrayBuffer requires 'new'
 
 对于一些常用的 Web API，如 FileReader API 和 Fetch API 底层也是支持 ArrayBuffer，这里我们以  FileReader API 为例，看一下如何把 File 对象读取为 ArrayBuffer 对象：
 
-```text
+```
 const reader = new FileReader();
 
 reader.onload = function(e) {
@@ -373,7 +373,7 @@ Uint8Array 数组类型表示一个 8 位无符号整型数组，创建时内容
 
 **「语法」**
 
-```text
+```
 new Uint8Array(); // ES2017 最新语法
 new Uint8Array(length); // 创建初始化为0的，包含length个元素的无符号整型数组
 new Uint8Array(typedArray);
@@ -383,7 +383,7 @@ new Uint8Array(buffer [, byteOffset [, length]]);
 
 **「示例」**
 
-```text
+```
 // new Uint8Array(length); 
 var uint8 = new Uint8Array(2);
 uint8[0] = 42;
@@ -409,7 +409,7 @@ var z = new Uint8Array(buffer, 1, 4);
 
 ArrayBuffer 本身只是一行 0 和 1 串。ArrayBuffer 不知道该数组中第一个元素和第二个元素之间的分隔位置。
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](<../.gitbook/assets/image (35).png>)
 
 （图片来源 —— A cartoon intro to ArrayBuffers and SharedArrayBuffers）
 
@@ -417,13 +417,13 @@ ArrayBuffer 本身只是一行 0 和 1 串。ArrayBuffer 不知道该数组中�
 
 例如，你可以有一个 Int8 类型的数组，它将把这个数组分成 8-bit 的字节数组。
 
-![](../.gitbook/assets/image%20%2845%29.png)
+![](<../.gitbook/assets/image (45).png>)
 
 （图片来源 —— A cartoon intro to ArrayBuffers and SharedArrayBuffers）
 
 或者你也可以有一个无符号 Int16 数组，它会把数组分成 16-bit 的字节数组，并且把它当作无符号整数来处理。
 
-![](../.gitbook/assets/image%20%2839%29.png)
+![](<../.gitbook/assets/image (39).png>)
 
 （图片来源 —— A cartoon intro to ArrayBuffers and SharedArrayBuffers）
 
@@ -431,7 +431,7 @@ ArrayBuffer 本身只是一行 0 和 1 串。ArrayBuffer 不知道该数组中�
 
 例如，如果我们从这个 ArrayBuffer 的 Int8 视图中获取 0 & 1 元素的值（-19 & 100），它将给我们与 Uint16 视图中元素 0 （25837）不同的值，即使它们包含完全相同的位。
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](<../.gitbook/assets/image (30).png>)
 
 （图片来源 —— A cartoon intro to ArrayBuffers and SharedArrayBuffers）
 
@@ -459,7 +459,7 @@ ArrayBuffer 本身只是一行 0 和 1 串。ArrayBuffer 不知道该数组中�
 
 **2.4.2 Blob 转换为 ArrayBuffer**
 
-```text
+```
 var blob = new Blob(["\x01\x02\x03\x04"]),
     fileReader = new FileReader(),
     array;
@@ -474,7 +474,7 @@ fileReader.readAsArrayBuffer(blob);
 
 **2.4.3 ArrayBuffer 转 Blob**
 
-```text
+```
 var array = new Uint8Array([0x01, 0x02, 0x03, 0x04]);
 var blob = new Blob([array]);
 ```
@@ -493,7 +493,7 @@ DataView 视图是一个可以从二进制 ArrayBuffer 对象中读写多种数�
 
 **2.5.1 DataView 构造函数**
 
-```text
+```
 new DataView(buffer [, byteOffset [, byteLength]])
 ```
 
@@ -509,7 +509,7 @@ new DataView(buffer [, byteOffset [, byteLength]])
 
 **「DataView 使用示例」**
 
-```text
+```
 const buffer = new ArrayBuffer(16);
 
 // Create a couple of views
@@ -530,9 +530,9 @@ console.log(view2.getInt8(0)); // expected output: 42
 
 **2.5.3 DataView 方法**
 
-DataView 对象提供了 getInt8\(\)、getUint8\(\)、setInt8\(\) 和 setUint8\(\) 等方法来操作数据。具体每个方法的使用，我们就不详细介绍。这里我们来看个简单的例子：
+DataView 对象提供了 getInt8()、getUint8()、setInt8() 和 setUint8() 等方法来操作数据。具体每个方法的使用，我们就不详细介绍。这里我们来看个简单的例子：
 
-```text
+```
 const buffer = new ArrayBuffer(16);
 const view = new DataView(buffer, 0);
 
@@ -542,7 +542,7 @@ view.getInt8(1); // 68
 
 介绍完 ArrayBuffer、TypedArray 和 DataView 的相关知识，阿宝哥用一张图来总结一下它们之间的关系。
 
-![](../.gitbook/assets/image%20%2828%29.png)
+![](<../.gitbook/assets/image (28).png>)
 
 好的，下面我们马上进入下一个环节。
 
@@ -552,9 +552,9 @@ view.getInt8(1); // 68
 
 **3.1 getImageData 方法**
 
-针对上述问题，我们可以利用 CanvasRenderingContext2D 提供的 `getImageData` 来获取图片像素数据，其中 getImageData\(\) 返回一个 ImageData 对象，用来描述 canvas 区域隐含的像素数据，这个区域通过矩形表示，起始点为（sx, sy）、宽为 sw、高为 sh。其中 `getImageData` 方法的语法如下：
+针对上述问题，我们可以利用 CanvasRenderingContext2D 提供的 `getImageData` 来获取图片像素数据，其中 getImageData() 返回一个 ImageData 对象，用来描述 canvas 区域隐含的像素数据，这个区域通过矩形表示，起始点为（sx, sy）、宽为 sw、高为 sh。其中 `getImageData` 方法的语法如下：
 
-```text
+```
 ctx.getImageData(sx, sy, sw, sh);
 ```
 
@@ -571,7 +571,7 @@ ctx.getImageData(sx, sy, sw, sh);
 
 该 API 是 Canvas 2D API 将数据从已有的 ImageData 对象绘制到位图的方法。如果提供了一个绘制过的矩形，则只绘制该矩形的像素。此方法不受画布转换矩阵的影响。putImageData 方法的语法如下：
 
-```text
+```
 void ctx.putImageData(imagedata, dx, dy);
 void ctx.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight);
 ```
@@ -590,7 +590,7 @@ void ctx.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight
 
 介绍完 `getImageData()` 和 `putImageData()` 方法，下面我们来看一下具体如何利用它们实现图片灰度化：
 
-```text
+```
 <!DOCTYPE html>
 <html>
   <head>
@@ -666,7 +666,7 @@ void ctx.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight
 
 以上代码成功运行后，最终的灰度化效果如下图所示：
 
-![](../.gitbook/assets/image%20%2848%29.png)
+![](<../.gitbook/assets/image (48).png>)
 
 #### 四、图片压缩
 
@@ -676,7 +676,7 @@ void ctx.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight
 
 下面我们来看一下如何对前面已进行灰度化处理的图片进行压缩。
 
-```text
+```
 <button id="compressbtn">图片压缩</button>
 <div style="display: flex;">
    <div style="flex: 33.3%;">
@@ -711,11 +711,11 @@ void ctx.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight
 
 在以上代码中，我们设默认的图片质量是 **「0.8」**，而图片类型是 **「image/webp」** 类型。当用户点击压缩按钮时，则会调用 Canvas 对象的 `toDataURL()` 方法实现图片压缩。以上代码成功运行后，最终的处理效果如下图所示：
 
-![](../.gitbook/assets/image%20%2829%29.png)
+![](<../.gitbook/assets/image (29).png>)
 
 其实 Canvas 对象除了提供 `toDataURL()` 方法之外，它还提供了一个 `toBlob()` 方法，该方法的语法如下：
 
-```text
+```
 canvas.toBlob(callback, mimeType, qualityArgument)
 ```
 
@@ -725,7 +725,7 @@ canvas.toBlob(callback, mimeType, qualityArgument)
 
 在获取压缩后图片对应的 Data URL 数据之后，可以把该数据直接提交到服务器。针对这种情形，服务端需要做一些相关处理，才能正常保存上传的图片，这里以 Express 为例，具体处理代码如下：
 
-```text
+```
 const app = require('express')();
 
 app.post('/upload', function(req, res){
@@ -744,7 +744,7 @@ app.post('/upload', function(req, res){
 
 然而对于返回的 Data URL 格式的图片数据一般都会比较大，为了进一步减少传输的数据量，我们可以把它转换为 Blob 对象：
 
-```text
+```
 function dataUrlToBlob(base64, mimeType) {
   let bytes = window.atob(base64.split(",")[1]);
   let ab = new ArrayBuffer(bytes.length);
@@ -758,7 +758,7 @@ function dataUrlToBlob(base64, mimeType) {
 
 在转换完成后，我们就可以压缩后的图片对应的 Blob 对象封装在 FormData 对象中，然后再通过 AJAX 提交到服务器上：
 
-```text
+```
 function uploadFile(url, blob) {
   let formData = new FormData();
   let request = new XMLHttpRequest();
@@ -774,7 +774,7 @@ function uploadFile(url, blob) {
 
 要查看图片对应的二进制数据，我们就需要借助一些现成的编辑器，比如 Windows 平台下的 **「WinHex」** 或 macOS 平台下的 **「Synalyze It! Pro」** 十六进制编辑器。这里我们使用 Synalyze It! Pro 这个编辑器，以十六进制的形式来查看阿宝哥头像对应的二进制数据。
 
-![](../.gitbook/assets/image%20%2822%29.png)
+![](<../.gitbook/assets/image (22).png>)
 
 **6.2 如何区分图片的类型**
 
@@ -782,22 +782,20 @@ function uploadFile(url, blob) {
 
 常见图片类型对应的魔数如下表所示：
 
-| 文件类型 | 文件后缀 | 魔数 |
-| :--- | :--- | :--- |
-| JPEG | jpg/jpeg | 0xFFD8FF |
-| PNG | png | 0x89504E47 |
-| GIF | gif | 0x47494638（GIF8） |
-| BMP | bmp | 0x424D |
+| 文件类型 | 文件后缀     | 魔数               |
+| ---- | -------- | ---------------- |
+| JPEG | jpg/jpeg | 0xFFD8FF         |
+| PNG  | png      | 0x89504E47       |
+| GIF  | gif      | 0x47494638（GIF8） |
+| BMP  | bmp      | 0x424D           |
 
-{% embed url="https://这里我们以阿宝哥的头像（abao.png）为例，验证一下该图片的类型是否正确：" %}
-
-![](../.gitbook/assets/image%20%2831%29.png)
+![](<../.gitbook/assets/image (31).png>)
 
 在日常开发过程中，如果遇到检测图片类型的场景，我们可以直接利用一些现成的第三方库。比如，你想要判断一张图片是否为 PNG 类型，这时你可以使用 is-png 这个库，它同时支持浏览器和 Node.js，使用示例如下：
 
 **「Node.js」**
 
-```text
+```
 // npm install read-chunk
 const readChunk = require('read-chunk'); 
 const isPng = require('is-png');
@@ -809,7 +807,7 @@ isPng(buffer);
 
 **「Browser」**
 
-```text
+```
 (async () => {
  const response = await fetch('unicorn.png');
  const buffer = await response.arrayBuffer();
@@ -823,21 +821,21 @@ isPng(buffer);
 
 图片的尺寸、位深度、色彩类型和压缩算法都会存储在文件的二进制数据中，我们继续以阿宝哥的头像（abao.png）为例，来了解一下实际的情况：
 
-![](../.gitbook/assets/image%20%2834%29.png)
+![](<../.gitbook/assets/image (34).png>)
 
 
 
 > ❝
 >
-> 528（十进制） =&gt; 0x0210（十六进制）
+> 528（十进制） => 0x0210（十六进制）
 >
-> 560（十进制）=&gt; 0x0230（十六进制）❞
+> 560（十进制）=> 0x0230（十六进制）❞
 
 因此如果想要获取图片的尺寸，我们就需要依据不同的图片格式对图片二进制数据进行解析。幸运的是，我们不需要自己实现该功能，image-size 这个 Node.js 库已经帮我们实现了获取主流图片类型文件尺寸的功能，使用示例如下：
 
 **「同步方式」**
 
-```text
+```
 var sizeOf = require('image-size');
 
 var dimensions = sizeOf('images/abao.png');
@@ -846,7 +844,7 @@ console.log(dimensions.width, dimensions.height);
 
 **「异步方式」**
 
-```text
+```
 var sizeOf = require('image-size');
 
 sizeOf('images/abao.png', function (err, dimensions) {
@@ -862,17 +860,17 @@ image-size 这个库功能还是蛮强大的，除了支持 PNG 格式之外，�
 
 那么 `getImageData()` 方法内部是如何处理的呢？下面我们来简单介绍一下大致流程，这里我们以一张 2px \* 2px 的图片为例，下图是放大展示的效果：
 
-![](../.gitbook/assets/image%20%2850%29.png)
+![](<../.gitbook/assets/image (50).png>)
 
 （图片来源：https://vivaxyblog.github.io/2019/12/07/decode-a-png-image-with-javascript-cn.html）
 
 同样，我们先使用 **「Synalyze It! Pro」** 十六进制编辑器打开上面的 **「2px \* 2px」** 的图片：
 
-![](../.gitbook/assets/image%20%2837%29.png)
+![](<../.gitbook/assets/image (37).png>)
 
 PNG 图片的像素数据是保存在 **「IDAT」** 块中，除了 **「IDAT」** 块之外，还包含其他的数据块，完整的数据块如下所示：
 
-![](../.gitbook/assets/image%20%2851%29.png)
+![](<../.gitbook/assets/image (51).png>)
 
 
 
@@ -880,7 +878,7 @@ PNG 图片的像素数据是保存在 **「IDAT」** 块中，除了 **「IDAT�
 
 在解析像素数据之前，我们先了解像素数据是如何编码的。每行像素都会先经过过滤函数处理，每行像素的过滤函数可以不同。然后所有行的像素数据会经过 **「deflate」** 压缩算法压缩。这里阿宝哥使用 pako 这个库进行解码操作：
 
-```text
+```
 const pako = require("pako");
 
 const compressed = new Uint8Array([120, 156, 99, 16, 96, 216, 0, 0, 0, 228, 0, 193]);
@@ -894,7 +892,7 @@ try {
 
 在以上代码中，通过调用 `pako.inflate()` 方法执行解压操作，最终的解压后的像素数据如下：
 
-```text
+```
 Uint8Array [ 0, 16, 0, 176 ]
 ```
 
@@ -904,7 +902,7 @@ Uint8Array [ 0, 16, 0, 176 ]
 
 File 对象是特殊类型的 Blob，且可以用在任意的 Blob 类型的上下文中。所以针对大文件传输的场景，我们可以使用 slice 方法对大文件进行切割，然后分片进行上传，具体示例如下：
 
-```text
+```
 const file = new File(["a".repeat(1000000)], "test.txt");
 
 const chunkSize = 40000;
@@ -931,7 +929,7 @@ async function chunkedUpload() {
 
 **「index.html」**
 
-```text
+```
 <!DOCTYPE html>
 <html>
   <head>
@@ -948,7 +946,7 @@ async function chunkedUpload() {
 
 **「index.js」**
 
-```text
+```
 const download = (fileName, blob) => {
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
@@ -978,5 +976,4 @@ downloadBtn.addEventListener("click", (event) => {
 
 {% embed url="https://mp.weixin.qq.com/s/DoipkAca00MuXon8wRYPgQ" %}
 
-\*\*\*\*
-
+****
